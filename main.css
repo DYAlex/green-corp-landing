@@ -193,6 +193,62 @@ button {
     color: #ff7039;
 }
 
+.promo {
+    display: flex;
+}
+
+.promo__image {
+    background-image: url(img/promo.jpg);
+    width: 50%;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.promo__right {
+    background-color: #dd5f26;
+    padding: 160px 60px;
+    width: 50%;
+}
+
+.promo__card {
+    background-color: white;
+    padding: 30px 40px;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 500;
+    border-radius: 25px;
+}
+
+.promo__card p {
+    opacity: 0.8;
+}
+
+.promo__card p::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ec6b29;
+    margin-right: 10px;
+}
+
+.promo__button>button {
+    background-color: #107b1c;
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.promo__button>.icon {
+    font-size: 15px;
+    margin-left: 5px;
+}
+
 .form__container {
     width: 550px;
 }
@@ -336,6 +392,11 @@ footer {
     .features__feedback {
         flex-direction: column;
     }
+
+    .promo__right {
+        padding: 50px 10px;
+        width: 100%;
+    }
 }
 @media (max-width: 720px) {
     header, .about, .form, footer {
@@ -379,5 +440,18 @@ footer {
     .features__savings-box {
         margin-right: 0;
         margin-bottom: 30px;
+    }
+
+    .promo {
+        flex-wrap: wrap-reverse;
+    }
+
+    .promo__image {
+        width: 100%;
+        height: 500px;
+    }
+
+    .promo__right {
+        padding: 50px 10px;
     }
 }
