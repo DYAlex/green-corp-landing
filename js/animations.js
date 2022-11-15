@@ -21,3 +21,27 @@ function initIncreaseNumberAnimation() {
     increaseNumberAnimationStep(0, element, 5000);
 }
 initIncreaseNumberAnimation();
+
+let budget = document.querySelector("#budget");
+budget.addEventListener("change", function handleSelectChange(event) {
+    // console.log(event);
+    if (event.target.value === "other") {
+        // Должны добавить еще одно текстовое поле
+        let formContainer = document.createElement("div");
+        formContainer.classList.add("form__group", "form__other-input");
+
+        let input = document.createElement("input");
+        input.placeholder = "Введите ваш вариант";
+        input.type = "text";
+
+        formContainer.appendChild(input);
+
+        document.querySelector("#form").insertBefore(formContainer, document.querySelector(".form__submit"));
+        // console.log(form);
+    }
+    let otherInput = document.querySelector(".form__other-input");
+    if (event.target.value !== "other" && Boolean(otherInput)) {
+        // Удаляем ранее добавленное текстовое поле, если оно есть в DOM
+        document.querySelector("#form").removeChild(otherInput);
+    }
+});
