@@ -33,13 +33,13 @@ budget.addEventListener("change", function handleSelectChange(event) {
 
         formContainer.appendChild(input);
 
-        document.querySelector("#form").insertBefore(formContainer, document.querySelector(".form__submit"));
+        document.querySelector("#form form").insertBefore(formContainer, document.querySelector(".form__submit"));
         // console.log(form);
     }
     let otherInput = document.querySelector(".form__other-input");
     if (event.target.value !== "other" && Boolean(otherInput)) {
         // Удаляем ранее добавленное текстовое поле, если оно есть в DOM
-        document.querySelector("#form").removeChild(otherInput);
+        document.querySelector("#form form").removeChild(otherInput);
     }
 });
 
@@ -49,6 +49,7 @@ function updateScroll() {
         header.classList.add("header__scrolled");
     } else {
         header.classList.remove("header__scrolled");
+        animationInited = false;
     }
 
     let windowBottomPosition = window.scrollY + window.innerHeight;
@@ -59,3 +60,26 @@ function updateScroll() {
     }
 }
 window.addEventListener('scroll', updateScroll);
+
+function onLinkClick(event) {
+    event.preventDefault();
+}
+
+function addSmoothScroll(anchor) {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+   
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    addSmoothScroll(anchor);
+    console.log(anchor.getAttribute('href'));
+});
+addSmoothScroll(document.querySelector('.more-button'));
+document.querySelectorAll('.order-button').forEach(anchor => {
+    addSmoothScroll(anchor);
+});
