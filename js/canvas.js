@@ -46,7 +46,6 @@ class Bubble {
 // bubbles.push(new Bubble(canvas));
 // bubbles.push(new Bubble(canvas));
 
-// console.log(bubbles);
 
 class CanvasBackground {
     constructor(id) {

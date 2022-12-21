@@ -8,7 +8,6 @@ function increaseNumberAnimationStep(i, element, endNumber) {
             element.innerText = i;
         } 
         i += 100;
-        // console.log(element.innerText);
         setTimeout(increaseNumberAnimationStep, INCREASE_NUMBER_ANIMATION_SPEED, i, element, endNumber);
     }
     
@@ -21,7 +20,6 @@ function initIncreaseNumberAnimation() {
 
 let budget = document.querySelector("#budget");
 budget.addEventListener("change", function handleSelectChange(event) {
-    // console.log(event);
     if (event.target.value === "other") {
         // Должны добавить еще одно текстовое поле
         let formContainer = document.createElement("div");
@@ -34,7 +32,6 @@ budget.addEventListener("change", function handleSelectChange(event) {
         formContainer.appendChild(input);
 
         document.querySelector("#form form").insertBefore(formContainer, document.querySelector(".form__submit"));
-        // console.log(form);
     }
     let otherInput = document.querySelector(".form__other-input");
     if (event.target.value !== "other" && Boolean(otherInput)) {
@@ -77,7 +74,7 @@ function addSmoothScroll(anchor) {
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     addSmoothScroll(anchor);
-    console.log(anchor.getAttribute('href'));
+    // console.log(anchor.getAttribute('href'));
 });
 addSmoothScroll(document.querySelector('.more-button'));
 document.querySelectorAll('.order-button').forEach(anchor => {
